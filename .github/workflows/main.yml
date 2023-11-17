@@ -27,6 +27,7 @@ jobs:
           pip install --upgrade matplotlib
           pip uninstall matplotlib
           pip install matplotlib
+          exit 1
         continue-on-error: true
 
 
