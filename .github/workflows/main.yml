@@ -49,5 +49,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: test-reports
-          path: |
-            ./test-report.txt  # Update this path to the directory containing your test reports
+          path: test-report.txt  # Update this path to the directory containing your test reports
