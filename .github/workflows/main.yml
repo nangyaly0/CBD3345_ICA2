@@ -26,6 +26,8 @@ jobs:
           pip install --upgrade matplotlib
           pip install numpy
           pip install pyparsing
+          pip install --upgrade kiwisolver
+          pip install --upgrade matplotlib
 
 
       - name: Build and Push the docker image
