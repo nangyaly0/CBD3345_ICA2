@@ -46,6 +46,7 @@ jobs:
       - name: Integration test
         run: docker run -p 5000:5000 alikhan0/flask-app pytest test_app.py > test-report.txt
 
+
       - name: Run Tests
         run: pytest test_app.py
 
