@@ -28,7 +28,7 @@ jobs:
       - name: Build and Push the docker image
         uses: nangyaly0/CBD3345_ICA2/actions/build-and-push-docker-image@main
         with:
-          image-name: 'alikhan0/flask-app'
+          image-name: alikhan0/flask-app
 
       - name: Integration test
         run: docker run -p 5000:5000 alikhan0/flask-app pytest test_app.py > test-report.txt
@@ -62,7 +62,7 @@ jobs:
       - name: Build and Push the docker image
         uses: nangyaly0/CBD3345_ICA2/actions/build-and-push-docker-image@main
         with:
-          image-name: 'alikhan0/flask-app'
+          image-name: alikhan0/flask-app
 
       - name: Integration test
         run: docker run -p 5000:5000 alikhan0/flask-app pytest test_app.py > test-report.txt
