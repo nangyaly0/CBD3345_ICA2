@@ -25,10 +25,12 @@ jobs:
           pip install -r test-requirements.txt
 
       - name: Set up Docker
-        uses: docker/setup-buildx-action@v1
-        with:
-          version: latest
-          configure-args: --set experimental.useNativeDriver=false
+        run: |
+          curl -fsSL https://get.docker.com -o get-docker.sh
+          sh get-docker.sh
+          sudo usermod -aG docker $USER
+          docker --version
+          docker info
           
       - name: Log in to Docker Hub
         env:
