@@ -27,6 +27,7 @@ jobs:
           pip install --upgrade matplotlib
           pip uninstall matplotlib
           pip install matplotlib
+        continue-on-error: true
 
 
       - name: Run Tests
