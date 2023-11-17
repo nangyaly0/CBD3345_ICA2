@@ -33,4 +33,4 @@ jobs:
         with:
           name: test-reports
           path: |
-            test-report.txt  # Update this path to the directory containing your test reports
+            ./test-report.txt  # Update this path to the directory containing your test reports
