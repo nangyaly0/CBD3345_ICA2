@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  test:
+  Windows-runner:
     runs-on: [self-hosted, Windows]
 
     steps:
@@ -24,13 +24,40 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r test-requirements.txt
-          pip install --upgrade matplotlib
-          pip install numpy
-          pip install pyparsing
-          pip install --upgrade kiwisolver
-          pip uninstall matplotlib
-          pip install matplotlib
 
+      - name: Build and Push the docker image
+        run: |
+           docker build . -t alikhan0/flask-app
+           docker push alikhan0/flask-app
+
+      - name: Integration test
+        run: docker run -p 5000:5000 alikhan0/flask-app pytest test_app.py > test-report.txt
+
+      - name: Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-reports
+          path: test-report.txt  # Update this path to the directory containing your test reports
+
+  Linux-runner:
+    runs-on: [self-hosted, linux]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install Dependencies
+        run: |
+          pwd
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r test-requirements.txt
 
       - name: Build and Push the docker image
         run: |
