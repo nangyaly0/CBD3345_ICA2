@@ -25,9 +25,10 @@ jobs:
           pip install -r test-requirements.txt
 
       - name: Set up Docker
-        uses: docker/setup-buildx-action@v1.7.0
+        uses: docker/setup-buildx-action@v1
         with:
           version: latest
+          configure-args: --set experimental.useNativeDriver=false
           
       - name: Log in to Docker Hub
         env:
