@@ -28,6 +28,8 @@ jobs:
         run: |
           Invoke-WebRequest -Uri https://get.docker.com -OutFile get-docker.sh
           .\get-docker.sh
+          $dockerPath = "C:\Program Files\Docker"
+          [System.Environment]::SetEnvironmentVariable("Path", $env:Path + ";$dockerPath", [System.EnvironmentVariableTarget]::Machine)
           docker --version
           docker info
           
