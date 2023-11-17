@@ -26,11 +26,10 @@ jobs:
 
       - name: Set up Docker
         run: |
-          curl -fsSL https://get.docker.com -o get-docker.sh
-          sh get-docker.sh
-          sudo usermod -aG docker $USER
-          docker --version
-          docker info
+          Invoke-WebRequest -Uri https://get.docker.com -OutFile get-docker.sh
+         .\get-docker.sh
+         docker --version
+         docker info
           
       - name: Log in to Docker Hub
         env:
