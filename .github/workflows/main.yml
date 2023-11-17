@@ -59,6 +59,13 @@ jobs:
           pip install -r requirements.txt
           pip install -r test-requirements.txt
 
+      - name: Log in to Docker Hub
+        env:
+          username: ${{ secrets.DOCKER_NAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          echo ${{ env.password }} | docker login -u ${{ env.username }} --password-stdin
+
       - name: Build and Push the docker image
         run: |
            docker build . -t alikhan0/flask-app
