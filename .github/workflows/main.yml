@@ -26,7 +26,7 @@ jobs:
           pip install -r test-requirements.txt
 
       - name: Build and Push the docker image
-        uses: nangyaly0/CBD3345_ICA2/actions/build-and-push-docker-image@main
+        uses: CBD3345_ICA2/actions/build-and-push-docker-image@main
         with:
           image-name: alikhan0/flask-app
 
