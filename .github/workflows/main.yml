@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, windows]
 
     steps:
       - name: Checkout Repository
