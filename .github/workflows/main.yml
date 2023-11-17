@@ -23,6 +23,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r test-requirements.txt
+          pip install --upgrade matplotlib
+          pip install numpy
+          pip install pyparsing
+
 
       - name: Build and Push the docker image
         run: |
