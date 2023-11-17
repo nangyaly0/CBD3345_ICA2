@@ -23,15 +23,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r test-requirements.txt
-
-      - name: Set up Docker
-        run: |
-          Invoke-WebRequest -Uri https://get.docker.com -OutFile get-docker.sh
-          .\get-docker.sh
-          $dockerPath = "C:\Program Files\Docker"
-          [System.Environment]::SetEnvironmentVariable("Path", $env:Path + ";$dockerPath", [System.EnvironmentVariableTarget]::Machine)
-          docker --version
-          docker info
           
       - name: Log in to Docker Hub
         env:
