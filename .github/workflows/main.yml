@@ -27,9 +27,9 @@ jobs:
       - name: Set up Docker
         run: |
           Invoke-WebRequest -Uri https://get.docker.com -OutFile get-docker.sh
-         .\get-docker.sh
-         docker --version
-         docker info
+          .\get-docker.sh
+          docker --version
+          docker info
           
       - name: Log in to Docker Hub
         env:
