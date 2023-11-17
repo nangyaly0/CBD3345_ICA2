@@ -25,6 +25,7 @@ jobs:
           pip install -r requirements.txt
           pip install -r test-requirements.txt
           
+      - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Build and Push the docker image
         uses: nangyaly0/CBD3345_ICA2/actions/build-and-push-docker-image@main
