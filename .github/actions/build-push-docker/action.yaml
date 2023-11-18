@@ -19,4 +19,4 @@ runs:
       run: |
         docker build -t ${{ inputs.image-name }} .
         docker push ${{ inputs.image-name }}
-      shell: ${{ input.bash-interpreter }}
+      shell: ${{ inputs.bash-interpreter }}
