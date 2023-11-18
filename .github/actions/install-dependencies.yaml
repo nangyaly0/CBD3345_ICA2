@@ -1,4 +1,4 @@
-# .github/actions/build-and-push-docker-image.yml
+# ./.github/actions/install-dependencies.yml
 name: 'Installing Dependencies'
 
 runs:
