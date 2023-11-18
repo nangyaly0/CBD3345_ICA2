@@ -17,13 +17,13 @@ runs:
       run: |
         if [ "${runner.os}" == "Linux" ]; then
           # Use Bash commands for Linux
-          docker build -t alikhan0/flask-app .
-          docker push alikhan0/flask-app
+          docker build -t ${{ inputs.image-name }} .
+          docker push ${{ inputs.image-name }}
           shell: bash
-       else
+        else
          # Use PowerShell commands for Windows
-         docker build -t alikhan0/flask-app .
-         docker push alikhan0/flask-app
+         docker build -t ${{ inputs.image-name }} .
+         docker push ${{ inputs.image-name }}
          shell: powershell
        fi
 
