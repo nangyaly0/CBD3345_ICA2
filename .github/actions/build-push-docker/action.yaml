@@ -25,5 +25,4 @@ runs:
          docker build -t ${{ inputs.image-name }} .
          docker push ${{ inputs.image-name }}
          shell: powershell
-       fi
-
+        fi
