@@ -6,6 +6,8 @@ inputs:
   image-name:
     description: 'Name of the Docker image'
     required: true
+  bash-interpreter:
+    description: 'bash or powershell'
 
 runs:
   using: 'composite'
@@ -17,4 +19,4 @@ runs:
       run: |
         docker build -t ${{ inputs.image-name }} .
         docker push ${{ inputs.image-name }}
-      shell: bash
+      shell: ${{ input.bash-interpreter }}
