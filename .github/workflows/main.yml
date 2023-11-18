@@ -29,6 +29,7 @@ jobs:
         uses: ./.github/actions/build-push-docker
         with:
           image-name: 'alikhan0/flask-app'
+          bash-interpreter: 'powershell'
 
       - name: Integration test
         run: docker run -p 5000:5000 alikhan0/flask-app pytest test_app.py > test-report.txt
@@ -63,6 +64,7 @@ jobs:
         uses: ./.github/actions/build-push-docker
         with:
           image-name: 'alikhan0/flask-app'
+          bash-interpreter: 'bash'
 
       - name: Integration test
         run: docker run -p 5000:5000 alikhan0/flask-app pytest test_app.py > test-report.txt
