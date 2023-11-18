@@ -9,7 +9,6 @@ inputs:
 
 runs:
   using: 'composite'
-  shell: bash  # or 'pwsh'
   steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -18,3 +17,4 @@ runs:
       run: |
         docker build -t ${{ inputs.image-name }} .
         docker push ${{ inputs.image-name }}
+      shell: bash
