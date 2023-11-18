@@ -10,10 +10,10 @@ inputs:
 runs:
   using: 'composite'
   steps:
-  - name: Checkout Repository
-    uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-  - name: Build and Push Docker Image
-    run: |
-      docker build -t ${{ inputs.image-name }} .
-      docker push ${{ inputs.image-name }}
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t ${{ inputs.image-name }} .
+        docker push ${{ inputs.image-name }}
