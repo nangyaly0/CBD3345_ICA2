@@ -15,14 +15,6 @@ runs:
 
     - name: Build and Push Docker Image
       run: |
-        if [ "${runner.os}" == "Linux" ]; then
-          # Use Bash commands for Linux
-          docker build -t ${{ inputs.image-name }} .
-          docker push ${{ inputs.image-name }}
-          shell: bash
-        else
-         # Use PowerShell commands for Windows
-         docker build -t ${{ inputs.image-name }} .
-         docker push ${{ inputs.image-name }}
-         shell: powershell
-        fi
+        docker build -t ${{ inputs.image-name }} .
+        docker push ${{ inputs.image-name }}
+      shell: bash
