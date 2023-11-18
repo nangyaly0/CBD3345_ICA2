@@ -19,12 +19,16 @@ jobs:
           python-version: 3.8
 
       - name: Install Dependencies
-        uses: ./.github/actions/install-dependencies.yaml
-
-      - name: Build and Push Docker Image
         run: |
-         docker build -t alikhan0/flask-app .
-         docker push alikhan0/flask-app
+          pwd
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r test-requirements.txt
+
+      - name: Build and Push the docker image
+        uses: ./.github/actions/build-and-push-docker
+        with:
+          image-name: 'alikhan0/flask-app'
 
       - name: Integration test
         run: docker run -p 5000:5000 alikhan0/flask-app pytest test_app.py > test-report.txt
@@ -55,10 +59,10 @@ jobs:
           pip install -r requirements.txt
           pip install -r test-requirements.txt
 
-      - name: Build and Push Docker Image
-        run: |
-         docker build -t alikhan0/flask-app .
-         docker push alikhan0/flask-app
+      - name: Build and Push the docker image
+        uses: ./.github/actions/build-and-push-docker
+        with:
+          image-name: 'alikhan0/flask-app'
 
       - name: Integration test
         run: docker run -p 5000:5000 alikhan0/flask-app pytest test_app.py > test-report.txt
